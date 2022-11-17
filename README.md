@@ -1,2 +1,2 @@
 # agenda-empty
-Point de départ de l'exercice 'Agenda'
+LIPOVAC Noémie et AL KHATIB BASEL
