@@ -30,7 +30,7 @@ public class FixedTerminationEventTest {
     
     @Test
     public void canCalculateNumberOfOccurrencesFromTerminationDate() {
-        assertEquals(10, fixedTermination.getNumberOfOccurrences(), "Cet événement doits se répéter 10 fois");
+        assertEquals(10, fixedRepetitions.getNumberOfOccurrences(), "Cet événement doits se répéter 10 fois");
     }
 
     @Test
