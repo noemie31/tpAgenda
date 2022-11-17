@@ -25,9 +25,11 @@ public class Agenda {
      */
     public List<Event> eventsInDay(LocalDate day) {
         List<Event>  nouveauxev= new ArrayList<Event>();
+        int compteur=0;
         for (Event e : agenda) {
             if (e.isInDay(day)){
                 nouveauxev.add(e);
+                compteur=compteur+1;
             }
         }
         return nouveauxev;

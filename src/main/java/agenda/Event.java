@@ -41,7 +41,7 @@ public class Event {
      * @return true if the event occurs on that day, false otherwise
      */
     public boolean isInDay(LocalDate aDay) {
-        boolean isinday = false;
+         boolean isinday = false;
         LocalDate ld = myStart.toLocalDate();
         if((aDay.getDayOfYear() == myStart.getDayOfYear() && aDay.getYear()==myStart.getYear() )
                 ||(aDay.isAfter(ChronoLocalDate.from(myStart)) && aDay.isBefore(ChronoLocalDate.from(myStart.plus(myDuration))))
@@ -73,6 +73,8 @@ public class Event {
         return myDuration;
     }
 
-   
+   public String toString(){
+        return "titre de l'événement: "+myTitle+", date départ: "+myStart+", durée: "+myDuration;
+   }
     
 }

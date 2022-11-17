@@ -22,12 +22,11 @@ public class RepetitiveEvent extends Event {
      * </UL>
      */
     private ChronoUnit frequency;
-    private ArrayList<LocalDate> exception;
+    private ArrayList<LocalDate> exception = new ArrayList<LocalDate>();
 
     public RepetitiveEvent(String title, LocalDateTime start, Duration duration, ChronoUnit frequency) {
         super(title, start, duration);
         this.frequency=frequency;
-        this.exception = new ArrayList<LocalDate>();
     }
 
     /**
@@ -36,14 +35,26 @@ public class RepetitiveEvent extends Event {
      * @param date the event will not occur at this date
      */
     public void addException(LocalDate date) {
-        try{
-            isInDay(date) ;
-             this.exception.add(date);
-        }catch (Exception e){
-            System.out.println(e);
-        }
+        exception.add(date);
     }
 
+    public ArrayList<LocalDate> getExceptionsDates() {
+        return exception;
+    }
+
+    public boolean isInDay(LocalDate aDay){
+        LocalDate dateSup = getStart().toLocalDate();
+
+        if (aDay.isAfter(dateSup) || aDay.equals(dateSup)){
+            while (aDay.isAfter(dateSup) || aDay.equals(dateSup)){
+                if (dateSup.equals(aDay) && (!exception.contains(aDay))){
+                    return true;
+                }
+                dateSup=dateSup.plus(1, frequency);
+            }
+        }
+        return false;
+    }
     /**
      *
      *
